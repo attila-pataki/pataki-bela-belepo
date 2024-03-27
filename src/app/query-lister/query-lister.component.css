@@ -5,6 +5,7 @@ tr {
 
 th {
     text-shadow: 1px 1px 1px black;
+   
 }
 
 td {
@@ -13,4 +14,24 @@ td {
     padding: 3px 10px;
     border-radius: 3px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+}
+
+table#listTable {
+    margin-top: 20px;
+}
+
+#summary {
+    display:block;
+    border: 2px solid rgb(31, 188, 255); 
+    border-radius: 5px;
+    max-width: 671px;
+}
+
+#summary td:first-child {
+
+     border:none;
+     box-shadow: none;
+     margin-bottom: 50px;
+    /*background-image:none!important;
+    background: none!important; */
 }

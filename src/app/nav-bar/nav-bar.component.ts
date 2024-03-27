@@ -20,7 +20,7 @@ export class NavBarComponent {
     router.events.subscribe((val) => {
       if (val instanceof NavigationEnd) {
         this.actPath = this.router.url
-        console.log(this.router.url)
+        // console.log(this.router.url)
       }
     })
   }
@@ -29,7 +29,7 @@ export class NavBarComponent {
   actPath: string = ""
 
   ngOnInit(): void {
-    console.log(this.route.snapshot.params)
+    // console.log(this.route.snapshot.params)
   }
 };
 

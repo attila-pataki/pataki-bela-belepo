@@ -1,6 +1,16 @@
 <p *ngIf="isLoading == 1">Loading</p>
-
-<table *ngIf="isLoading == 2">
+<div id="summary" *ngIf="isLoading == 2">
+    <table>
+     <tr>
+         <td>Összesítés</td>
+         <td>rögzített Útvonalak száma<br/> {{loadedLength}}</td>
+         <td>Összesen megtett út<br/>{{totalKm}} Km</td>
+         <td>Fogyasztott üzemanyag<br/> {{totalFuel}} Liter</td>
+     </tr>
+    </table>
+ </div>
+<table id="listTable" *ngIf="isLoading == 2">
+   
   <tr>
     <th *ngFor="let txt of columns">{{ txt }}</th>
   </tr>

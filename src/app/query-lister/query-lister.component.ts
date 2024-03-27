@@ -15,6 +15,8 @@ export class QueryListerComponent {
   displayLength: number = 0
   loadedLength: number = 0
   isLoading: number = 0
+  totalKm: number = 0
+  totalFuel: number =0
   columns = [
     "Rendszám",
     "Típus",
@@ -42,22 +44,18 @@ export class QueryListerComponent {
     if (record) {
 
       this.loadedLength += 1
+      this.totalKm += record['distance']
+      this.totalFuel += record['distance'] * record['consumption']
       this.loadedRecords.push(record)
       if (this.loadedLength == this.displayLength) {
         console.log(this.loadedRecords)
         console.log(this.loadedLength, " == ", this.displayLength)
         console.log("all loaded")
         this.isLoading = 2
+       
       }
     }
   }
 
-  listRecords(id: string | null) {
-    this.displayRecords = []
-    this.loadedRecords.forEach(element => {
-      if (element.id == id || !id) { this.displayRecords.push(element) }
-    });
-    console.log(this.displayRecords)
-  }
 
 }

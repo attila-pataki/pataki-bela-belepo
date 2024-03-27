@@ -47,6 +47,8 @@ export class NewQueryComponent {
   async getRouteNEW(isFilterd: boolean) {
     this.queryLister.loadedRecords = []
     this.queryLister.loadedLength = 0
+    this.queryLister.totalFuel = 0
+    this.queryLister.totalKm = 0
     console.log(this.routeRecords.docs.length)
     let index = 0
     index = 0
@@ -91,7 +93,7 @@ export class NewQueryComponent {
     this.isQuery = true
     this.mainservice.getRecords("recordedRoutes", null).then((ret) => {
       this.routeRecords = ret
-      console.log(this.routeRecords)
+      // console.log(this.routeRecords)
     })
   }
 
