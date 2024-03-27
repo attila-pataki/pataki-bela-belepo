@@ -1,0 +1,69 @@
+<main>
+  <h2>Gépjármű adatai</h2>
+  <label>
+    <div class="inputLabel">Rendszám</div>
+    <input
+      [disabled]="isDisabled"
+      [ngClass]="{ valid: isValid[0] }"
+      class="recorded vehicle"
+      oninput="this.value = this.value.toUpperCase()"
+      [(ngModel)]="plate"
+      name="plate"
+      type="string"
+      list="plates"
+      (keyup)="plateKeyup($event)"
+    />
+    <div id="plateHelp" (click)="showHelp()">?</div>
+
+    <div id="helpSection" *ngIf="isShowHelp">
+      <div id="helpText">
+        <button (click)="closeHelp()">Bezár</button>
+        <app-plate-help></app-plate-help>
+      </div>
+      <div id="hideBckgr"></div>
+    </div>
+
+    <datalist id="plates">
+      <option
+        *ngFor="let field of predefPlates; let i = index"
+        value="{{ field }}"
+      ></option>
+    </datalist>
+  </label>
+  <br />
+
+  <label>
+    <div class="inputLabel">Típus</div>
+    <input
+      [disabled]="isDisabled || isUpdate || isQuery"
+      [ngClass]="{ valid: isValid[1] }"
+      class="recorded vehicle"
+      [(ngModel)]="model"
+      name="model"
+      type="string"
+      (keyup)="modelKeyup()"
+    />
+  </label>
+  <br />
+  <label>
+    <div class="inputLabel">Fogyasztás</div>
+    <input
+      [disabled]="isDisabled || isUpdate || isQuery"
+      [ngClass]="{ valid: isValid[2] }"
+      class="recorded vehicle"
+      [(ngModel)]="consumption"
+      name="consumption"
+      type="number"
+      (keyup)="consumptoinKeyup()"
+      (change)="consumptoinKeyup()"
+    />
+    <div class="inputAfterText">liter/100km</div>
+  </label>
+
+  <button class="clrBTN" (click)="clearFields()">
+    Gépjármű adatok Kiürítése
+  </button>
+  <button *ngIf="!isValid.includes(false) && !isUpdate" (click)="addVehicle()">
+    Új Gépjármű regisztrálása
+  </button>
+</main>

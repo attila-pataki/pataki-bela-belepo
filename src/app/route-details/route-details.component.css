@@ -1,0 +1,11 @@
+main {
+  background-image: linear-gradient(
+    to right,
+    rgb(0, 149, 255),
+    rgb(0, 115, 255)
+  );
+}
+
+input[name="distance"] {
+  width: 10rem;
+}

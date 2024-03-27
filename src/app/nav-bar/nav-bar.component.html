@@ -1,0 +1,21 @@
+<div id="navBar">
+  <ul>
+    <li>
+      <a routerLink="/"
+        ><img height="30px" src="assets/images/logo.png" alt="SolyomSoft Kft."
+      /></a>
+    </li>
+    <li>
+      <a [ngClass]="{ activeLink: actPath == '/add-new' }" routerLink="/add-new"
+        >Új Útvonal</a
+      >
+    </li>
+    <li>
+      <a
+        [ngClass]="{ activeLink: actPath == '/new-query' }"
+        routerLink="/new-query"
+        >Lekérdezés</a
+      >
+    </li>
+  </ul>
+</div>

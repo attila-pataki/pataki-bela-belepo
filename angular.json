@@ -88,6 +88,23 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "version": 2
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "pataki-bela-belepo:build:production",
+              "serveTarget": "pataki-bela-belepo:serve:production"
+            },
+            "development": {
+              "buildTarget": "pataki-bela-belepo:build:development",
+              "serveTarget": "pataki-bela-belepo:serve:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }

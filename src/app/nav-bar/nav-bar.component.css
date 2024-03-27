@@ -1,0 +1,46 @@
+ul {
+  margin: 0px;
+}
+li {
+  display: inline-block;
+
+  height: 35px;
+  padding: 5px;
+}
+li a {
+  vertical-align: middle;
+  color: rgb(164, 219, 255);
+  font-size: 22px;
+  text-decoration: none;
+  padding: 5px 20px;
+}
+
+li a:hover {
+  color: white;
+}
+
+.activeLink {
+  color: white !important;
+  text-shadow: 0px 0px 1px white;
+  text-decoration: underline !important;
+  box-shadow: 1px 1px 1px black;
+  border: 1px solid white;
+  border-radius: 5px;
+  background-image: linear-gradient(
+    to left,
+    rgb(0, 149, 255),
+    rgb(0, 115, 255)
+  );
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+img {
+  margin-top: 8px;
+}
+
+@media only screen and (max-width: 550px) {
+  li {
+    display: block;
+    text-align: center;
+  }
+}

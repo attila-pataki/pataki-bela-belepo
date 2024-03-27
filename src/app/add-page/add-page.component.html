@@ -1,0 +1,93 @@
+<header class="page-header">
+  <h1>Új Útvonal hozzáadása</h1>
+</header>
+
+<main class="page-main">
+  <app-vehicle-details
+    [isDisabled]="isDisabled"
+    (isAllValid)="checkIfVehicleValid($event)"
+  ></app-vehicle-details>
+  <button
+    [ngClass]="{ buttonDisabled: !allValid }"
+    *ngIf="!isDisabled"
+    (click)="allValid ? addRoute() : showHelp()"
+  >
+    Útvonal hozzáadása
+  </button>
+  <button *ngIf="isDisabled" (click)="editVehicle()">
+    Gépjármű adatok módosítása
+  </button>
+  <app-route-details
+    *ngIf="isDisabled"
+    (isAllValid)="checkIfRouteValid($event)"
+  ></app-route-details>
+  <button
+    [ngClass]="{ buttonDisabled: !allRouteValid }"
+    *ngIf="!isUpdate && isDisabled"
+    (click)="allRouteValid ? recordVehicleAndRoute() : showRouteHelp()"
+  >
+    Gépjármű és új útvonal regisztrálása
+  </button>
+  <button
+    [ngClass]="{ buttonDisabled: !allRouteValid }"
+    *ngIf="isUpdate && isDisabled"
+    (click)="allRouteValid ? recordRoute() : showRouteHelp()"
+  >
+    Új útvonal regisztrálása (regisztrált gépjármű)
+  </button>
+  <!-- <br/> -->
+  <div *ngIf="isDisabled" id="keepSection">
+    <input type="checkbox" id="keepVehicle" [(ngModel)]="isKeep" />
+    <label for="keepVehicle"
+      >További útvnal ehhez a gépjárműhöz <br />(Gépjármű adatok
+      megtartása)</label
+    >
+  </div>
+</main>
+
+<div *ngIf="isShowHelp" id="helpSection">
+  <div class="helpText">
+    <button (click)="closeHelp()">Bezár</button>
+    <app-plate-help *ngIf="!isValid[0]"></app-plate-help>
+    <p *ngIf="!isValid[1]"><b>A Típus</b> legalább 3 karatker hosszú legyen</p>
+    <p *ngIf="!isValid[2]">
+      <b>A fogyasztás</b> nullánál nagyon szám kell hogy legyen
+    </p>
+  </div>
+  <div class="hideBckgr"></div>
+</div>
+
+<div *ngIf="isrouteShowHelp" id="routehelpSection">
+  <div class="helpText">
+    <button (click)="closeRouteHelp()">Bezár</button>
+    <div *ngIf="!RouteValid[0]">
+      <b>A dátum</b> megadása kötelező, és meg kell felelnie az alábbiaknak:<br /><br />
+      <ul>
+        <li>magyar dátum formátum szerint: ÉÉÉÉ-HH-NN</li>
+        <li>1980 előtti dátumot nem lehet megadni</li>
+        <li>a mai napnál későbbi dátumot nem lehet megadni</li>
+      </ul>
+    </div>
+
+    <p *ngIf="!RouteValid[1]">
+      Kérem ellenőrizze az <b>az Idő</b> mező tartalmát
+    </p>
+    <p *ngIf="!RouteValid[2]">
+      Kérem ellenőrizze a <b>Honnan</b> mező tartalmát (legalább 3 karaktert meg
+      kell adni)
+    </p>
+    <p *ngIf="!RouteValid[3]">
+      Kérem ellenőrizze a <b>Hová</b> mező tartalmát (legalább 3 karaktert meg
+      kell adni)
+    </p>
+    <p *ngIf="!RouteValid[4]">
+      Kérem ellenőrizze a <b>Partner neve</b> mező tartalmát (legalább 3
+      karaktert meg kell adni)
+    </p>
+    <p *ngIf="!RouteValid[5]">
+      Kérem ellenőrizze a <b>Megtett km</b> mező tartalmát (nullánál nagyobb
+      számot kell megadni)
+    </p>
+  </div>
+  <div class="hideBckgr"></div>
+</div>

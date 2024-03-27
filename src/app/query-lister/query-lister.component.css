@@ -1,0 +1,16 @@
+tr {
+   text-align: center;
+   color: white;
+}
+
+th {
+    text-shadow: 1px 1px 1px black;
+}
+
+td {
+    margin: 10px 0px;
+    border: 1px solid rgb(31, 188, 255); 
+    padding: 3px 10px;
+    border-radius: 3px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+}

@@ -1,0 +1,10 @@
+<p *ngIf="isLoading == 1">Loading</p>
+
+<table *ngIf="isLoading == 2">
+  <tr>
+    <th *ngFor="let txt of columns">{{ txt }}</th>
+  </tr>
+  <tr *ngFor="let data of loadedRecords; index as i">
+    <td *ngFor="let field of Datacolumns">{{ loadedRecords[i][field] }}</td>
+  </tr>
+</table>

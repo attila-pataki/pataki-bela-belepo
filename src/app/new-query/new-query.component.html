@@ -1,0 +1,30 @@
+<header>
+  <h1>Lekérdezés</h1>
+</header>
+<main>
+  <app-vehicle-details
+    [isQuery]="isQuery"
+    [isDisabled]="isDisabled"
+    (isAllValid)="checkIfVehicleValid($event)"
+  ></app-vehicle-details>
+  <button
+    [ngClass]="{ buttonDisabled: !allValid }"
+    (click)="allValid ? getRouteNEW(true) : showHelp()"
+  >
+    Kiválasztott Gépjármű útvonalainak lekérdezése
+  </button>
+  <button (click)="getRouteNEW(false)">
+    Teljes adat lekérdezés (minden regisztrált gépjármű)
+  </button>
+  <!-- <br/> -->
+  <app-query-lister></app-query-lister>
+</main>
+
+<div *ngIf="isShowHelp" id="helpSection">
+  <div class="helpText">
+    <button (click)="closeHelp()">Bezár</button>
+    <h3>A rendszámhoz nem tartozik regisztrált gépjármű</h3>
+    <app-plate-help></app-plate-help>
+  </div>
+  <div class="hideBckgr"></div>
+</div>

@@ -1,0 +1,37 @@
+<main>
+    <h2>Útvonal hozzáadása</h2>
+<label>
+    <div class="inputLabel" >Dátum</div>
+    <input  [ngClass]="{'valid':isValid[0]}" class="recorded route" [(ngModel)]="date" name="date" type="date" (change)="checkDate()" (keyup)="checkDate()"> 
+</label>
+<br/>
+<label>
+    <div class="inputLabel" >Idő</div>
+    <input [ngClass]="{'valid':isValid[1]}" class="recorded route" [(ngModel)]="time" name="time" type="time" (change)="checkTime()" (keyup)="checkTime()"> 
+</label>
+<br/>
+<label>
+    <div class="inputLabel" >Honnan</div>
+    <input  [ngClass]="{'valid':isValid[2]}" class="recorded route" [(ngModel)]="from" name="from" type="string" (change)="checkFrom()" (keyup)="checkFrom()"> 
+</label>
+<br/>
+
+<label>
+    <div class="inputLabel" >Hová</div>
+    <input  [ngClass]="{'valid':isValid[3]}" class="recorded route" [(ngModel)]="destination" name="destination" type="string" (change)="checkDest()" (keyup)="checkDest()"> 
+</label>
+<br/>
+
+<label>
+    <div class="inputLabel" >Partner neve</div>
+    <input [ngClass]="{'valid':isValid[4]}"  class="recorded route" [(ngModel)]="partner" name="partner" type="string" (change)="checkPartner()" (keyup)="checkPartner()"> 
+</label>
+<br/>
+<label>
+    <div class="inputLabel" >Megtett km</div>
+    <input  [ngClass]="{'valid':isValid[5]}" class="recorded route" [(ngModel)]="distance" name="distance" type="number" (change)="checkDist()" (keyup)="checkDist()"> 
+    <div class="inputAfterText">km</div>  
+</label>
+
+<button class="clrBTN" (click)="clearFields()">Útvonal adatok kiürítése</button>
+</main>

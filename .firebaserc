@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "belepo-pataki": {
+      "hosting": {
+        "pataki-bela-belepo": [
+          "belepo-pataki"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "belepo-pataki"
+  }
+}
