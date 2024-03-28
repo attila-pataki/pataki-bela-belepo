@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "public",
+    "public": "dist/pataki-bela-belepo/browser",
     "ignore": [
       "firebase.json",
       "**/.*",
